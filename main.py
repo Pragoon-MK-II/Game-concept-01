@@ -5,7 +5,7 @@ from constants import *
 def main():
     clock = pygame.time.Clock()
     background = pygame.image.load('Images/UI.png')
-    background = pygame.transform.scale(background, (1028, 724))
+    background = pygame.transform.scale(background, (width, height))
     running = True
     player = Player()
 
