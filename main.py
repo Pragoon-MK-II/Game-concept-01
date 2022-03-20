@@ -1,5 +1,5 @@
 import pygame
-
+from constants import *
 
 def main():
     screen = pygame.display.set_mode((1028, 926))
@@ -20,7 +20,18 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
         pygame.display.flip()
 
+def turn(new_direction,pygame_event):
+    if pygame_event.key == pygame.K_DOWN:  # the matching key for downward arrow and so on...
+        new_direction = DIRECTION_DICT[DOWN]
+    elif pygame_event.key == pygame.K_UP:
+        new_direction = DIRECTION_DICT[UP]
+    elif pygame_event.key == pygame.K_LEFT:
+        new_direction = DIRECTION_DICT[LEFT]
+    elif pygame_event.key == pygame.K_RIGHT:
+        new_direction = DIRECTION_DICT[RIGHT]
+    return new_direction
 
 main()
