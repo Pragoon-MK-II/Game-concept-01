@@ -1,7 +1,12 @@
+import pygame
+
+screen = pygame.display.set_mode((1028, 926))
 
 width = 70
 height = 70
 
+X_C=100
+Y_C=100
 
 UP = "UP"
 DOWN = "DOWN"
