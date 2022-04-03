@@ -16,6 +16,7 @@ class Player:
         self.direction = "DOWN"
         self.alive = True
 
+
     def die(self):
         self.alive = False
         screen.blit(self.dead_image, (self.rect.x, self.rect.y))
