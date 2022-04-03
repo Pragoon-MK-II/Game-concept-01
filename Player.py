@@ -10,17 +10,28 @@ class Player:
         self.back_image = pygame.transform.scale(self.back_image, (100, 100))
         self.dead_image = pygame.image.load('Images/dead.png')
         self.dead_image = pygame.transform.scale(self.dead_image, (100, 100))
+        self.death_image = pygame.image.load('Images/avocado.jpg')
+        self.death_image = pygame.transform.scale(self.death_image, (1028,926))
         self.rect = self.front_image.get_rect()
         self.rect.x = 600
         self.rect.y = 700
         self.direction = "DOWN"
-        self.alive = True
+
 
 
     def die(self):
-        self.alive = False
+
         screen.blit(self.dead_image, (self.rect.x, self.rect.y))
+        pygame.display.flip()
         t.sleep(1)
+        screen.blit(self.death_image, (0,0))
+        pygame.display.flip()
+        t.sleep(2)
+        self.update()
+
+
+
+
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -39,3 +50,9 @@ class Player:
             screen.blit(self.back_image, (self.rect.x, self.rect.y))
         elif self.direction == "DOWN":
             screen.blit(self.front_image, (self.rect.x, self.rect.y))
+
+
+
+
+
+
