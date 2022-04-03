@@ -8,4 +8,5 @@ height = 724
 
 X_C = 100
 Y_C = 100
-# mixer.music.load('Clown Pepe.mp3')
+pygame.mixer.init()
+pygame.mixer.music.load('music/Lavender Town cut.mp3')
