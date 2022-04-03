@@ -13,6 +13,10 @@ def main():
     boss1= Boss(screen)
     while running:
         clock.tick(60)
+        collide = pygame.Rect.colliderect(player.rect, boss1.rect)
+        if collide:
+            player.die()
+            running = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -21,6 +25,9 @@ def main():
         player.update()
         boss1.update()
         pygame.display.flip()
+
+
+
 
 
 main()
