@@ -3,6 +3,7 @@ from Bullet import Bullet
 import random
 import math
 
+
 class Boss:
     def __init__(self, screen):
         self.image = pygame.image.load('Images/boss1.png')
@@ -14,10 +15,13 @@ class Boss:
         self.screen = screen
         self.bullets = pygame.sprite.Group()
 
+    def regular_attack(self):
+        pass
+
     def update(self):
         if self.timer == 0:
-            angle = random.randint(int(math.radians(180)), int(math.radians(360)))
-            b = Bullet(self.rect.x, self.rect.y, 10, angle, self.screen)
+            angle = random.randint(-90, 90)
+            b = Bullet('Images/saskeee.png', self.rect.x, self.rect.y, 10, angle, self.screen)
             self.bullets.add(b)
             self.timer = 60
         else:
