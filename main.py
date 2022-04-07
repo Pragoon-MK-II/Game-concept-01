@@ -9,10 +9,18 @@ def startscreen():
     background = pygame.transform.scale(background, (width, height))
     running = True
     font = pygame.font.Font(None, 24)
+    textY=900
+    textX=1000
     text = font.render('START', True, (100,0,0))
     textRect = text.get_rect()
-    textRect.center = (1000 // 2, 900 // 2)
+    textRect.center = [textX // 2, textY // 2]
+    print(textRect.center)
     while running:
+        for event in pygame.event.get():
+            mpos=pygame.mouse.get_pos()
+            print(mpos)
+            if textRect.center[0]+10==mpos[0] or textRect.center[1]+10==mpos[1]:
+                main()
         screen.blit(background, (0, 100))
         screen.blit(text, textRect)
         pygame.display.flip()
