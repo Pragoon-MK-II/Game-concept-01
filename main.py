@@ -22,10 +22,10 @@ def startscreen():
         for event in pygame.event.get():
             mpos = pygame.mouse.get_pos()
             if textRect.center[0] + 30 > mpos[0] > textRect.center[0]-30 and \
-            textRect.center[1]-30 < mpos[1] < 30 + textRect.center[1]:
+            textRect.center[1]-10 < mpos[1] < 10 + textRect.center[1]:
                 main()
             if exitRect.center[0] + 10 > mpos[0] > exitRect.center[0]-30 and \
-            exitRect.center[1]-30 < mpos[1] < 10 + exitRect.center[1]:
+            exitRect.center[1]-10 < mpos[1] < 10 + exitRect.center[1]:
                 exit()
         screen.blit(background, (0, 0))
         screen.blit(text, textRect)
@@ -45,14 +45,14 @@ def main():
         clock.tick(60)
         collide = pygame.Rect.colliderect(player.rect, boss1.rect)
         if collide:
-            player.die()
             youDied.play()
+            player.die()
             running = False
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
+            mpos = pygame.mouse.get_pos()
             if event.type == pygame.QUIT or keys[K_SPACE]:
-                running = False
-
+                exit()
         screen.blit(background, (0, 0))
         player.update()
         boss1.update()

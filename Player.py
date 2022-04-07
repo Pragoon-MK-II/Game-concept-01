@@ -8,7 +8,7 @@ class Player:
         self.front_image = pygame.transform.scale(self.front_image, (100, 100))
         self.back_image = pygame.image.load('Images/back.png')
         self.back_image = pygame.transform.scale(self.back_image, (100, 100))
-        self.dead_image = pygame.image.load('Images/dead.png')
+        self.dead_image = pygame.image.load('Images/sickass.png')
         self.dead_image = pygame.transform.scale(self.dead_image, (100, 100))
         self.rect = self.front_image.get_rect()
         self.rect.x = 600
