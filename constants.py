@@ -12,3 +12,4 @@ X_C = 100
 Y_C = 100
 pygame.mixer.init()
 pygame.mixer.music.load('music/Lavender Town cut.mp3')
+youDied= pygame.mixer.Sound("music/Laugh.wav")
