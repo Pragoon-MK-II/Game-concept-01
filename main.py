@@ -4,15 +4,19 @@ from Player import Player
 from constants import *
 
 def startscreen():
+    pygame.init()
     background = pygame.image.load('Images/pointW.jpg')
     background = pygame.transform.scale(background, (width, height))
     running = True
-    font = pygame.freetype.Font("your_font.ttf", 24)
+    font = pygame.font.Font(None, 24)
     text = font.render('START', True, (100,0,0))
     textRect = text.get_rect()
-    textRect.center = (700 // 2, 700 // 2)
-    screen.blit(background, (0, 100))
-    screen.blit(text, textRect)
+    textRect.center = (1000 // 2, 900 // 2)
+    while running:
+        screen.blit(background, (0, 100))
+        screen.blit(text, textRect)
+        pygame.display.flip()
+
 def main():
     clock = pygame.time.Clock()
     pygame.mixer.music.play(-1)
