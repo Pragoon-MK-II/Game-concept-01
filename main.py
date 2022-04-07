@@ -10,7 +10,7 @@ def startscreen():
     background = pygame.transform.scale(background, optimal)
     running = True
     font = pygame.font.Font(None, 24)
-    textY = 900
+    textY = 850
     textX = 1000
     exitt = font.render('EXIT', True, (100, 0, 0))
     text = font.render('START', True, (100, 0, 0))
@@ -18,19 +18,16 @@ def startscreen():
     exitRect = exitt.get_rect()
     textRect.center = [textX // 2, textY // 2]
     exitRect.center = [(textX // 2), (textY // 2)+50]
-    print(exitRect.center)
-    print(textRect.center)
     while running:
         for event in pygame.event.get():
             mpos = pygame.mouse.get_pos()
-            if textRect.center[0] + 10 > mpos[0] > textRect.center[0]-30 and \
-            textRect.center[1]-30 < mpos[1] < 10 + textRect.center[1]:
-                print(mpos)
+            if textRect.center[0] + 30 > mpos[0] > textRect.center[0]-30 and \
+            textRect.center[1]-30 < mpos[1] < 30 + textRect.center[1]:
                 main()
             if exitRect.center[0] + 10 > mpos[0] > exitRect.center[0]-30 and \
             exitRect.center[1]-30 < mpos[1] < 10 + exitRect.center[1]:
                 exit()
-        screen.blit(background, (0, 100))
+        screen.blit(background, (0, 0))
         screen.blit(text, textRect)
         screen.blit(exitt, exitRect)
         pygame.display.flip()
@@ -51,13 +48,15 @@ def main():
             player.die()
             running = False
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            keys = pygame.key.get_pressed()
+            if event.type == pygame.QUIT or keys[K_SPACE]:
                 running = False
 
-        screen.blit(background, (0, 100))
+        screen.blit(background, (0, 0))
         player.update()
         boss1.update()
         pygame.display.flip()
+    pygame.mixer.music.stop()
 
 
 startscreen()
