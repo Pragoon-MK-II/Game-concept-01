@@ -1,10 +1,12 @@
 import pygame
 from pygame import *
 
-screen = pygame.display.set_mode((1028, 926))
+optimal=(1028, 926)
+screen = pygame.display.set_mode(optimal)
 
 width = pygame.display.Info().current_w
 height = pygame.display.Info().current_h
+
 
 X_C = 100
 Y_C = 100
