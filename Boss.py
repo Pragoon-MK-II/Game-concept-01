@@ -171,7 +171,7 @@ class Boss:
             bullet_list = []
             while i < 10:
                 bullet_list.append(
-                    Bullet('Images/sprite0.png', x, self.rect.y, 10, angle2, self.screen, (80, 80), (10, 10)))
+                    Bullet('Images/sprite0.png', x, self.rect.y, 8, angle2, self.screen, (80, 80), (10, 10)))
                 x += 80
                 i += 1
             self.bullets.add(bullet_list)
@@ -185,12 +185,12 @@ class Boss:
             bullet_list = []
             while i < 10:
                 bullet_list.append(
-                    Bullet('Images/sprite5.png', x, self.rect.y, 10, angle2, self.screen, (80, 80), (10, 10)))
+                    Bullet('Images/sprite5.png', x, self.rect.y, 8, angle2, self.screen, (80, 80), (10, 10)))
                 x += 80
                 i += 1
             while j < 10:
                 bullet_list.append(
-                    Bullet('Images/sprite5.png', x, y, 10, angle2, self.screen, (80, 80), (10, 10)))
+                    Bullet('Images/sprite5.png', x, y, 8, angle2, self.screen, (80, 80), (10, 10)))
                 y -= 80
                 j += 1
             self.bullets.add(bullet_list)
