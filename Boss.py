@@ -17,6 +17,7 @@ class Boss:
         self.seconds = 0
         self.bullets = pygame.sprite.Group()
         self.hypersecondtimer = 0.0
+        self.bpmR = 2
 
 
     def regular_attack(self):
@@ -32,7 +33,7 @@ class Boss:
             self.seconds += 1
 
         else:
-            self.timer -= 1
+            self.timer -= self.bpmR
             self.hypersecondtimer += 1
 
         if self.seconds == 5 or self.seconds == 7 or self.seconds == 9 and self.hypersecondtimer % 60 == 0:
@@ -42,7 +43,7 @@ class Boss:
             angle2 = random.randint(1, 1)
             bullet_list = []
             while i < 10:
-                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 10, angle2, self.screen, (80,80) (10,10) ) )
+                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 10, angle2, self.screen, (80,80) , (10,10) ) )
                 x += 80
                 i += 1
             self.bullets.add(bullet_list)
