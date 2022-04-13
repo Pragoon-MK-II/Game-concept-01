@@ -47,6 +47,16 @@ class Boss:
                 i += 1
             self.bullets.add(bullet_list)
 
+        #self.dead_image = pygame.image.load('Images/sickass.png')
+        #self.dead_image = pygame.transform.scale(self.dead_image, (100, 100))
+
+
+        if self.seconds == 1:
+            warning = pygame.transform
+            screen.blit(pygame.image.load('Images/WARNING.png'), (450,100))
+            pygame.display.flip()
+
+
         if self.seconds == 2 and self.hypersecondtimer % 60 == 0:
             d = Bullet('Images/BEAM.png', 450 , self.rect.y, 0, random.randint(1,1), self.screen, (100,height) , (40,height))
 
