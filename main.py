@@ -45,7 +45,7 @@ def main():
         clock.tick(60)
         collide = pygame.Rect.colliderect(player.rect, boss1.rect)
         if collide:
-            youDied.play()
+            pygame.mixer.quit()
             player.die()
 
         for event in pygame.event.get():

@@ -8,29 +8,30 @@ class Player:
         self.front_image = pygame.transform.scale(self.front_image, (100, 100))
         self.back_image = pygame.image.load('Images/back.png')
         self.back_image = pygame.transform.scale(self.back_image, (100, 100))
+        self.left_image = pygame.image.load('Images/left.png')
+        self.left_image = pygame.transform.scale(self.left_image, (100, 100))
+        self.right_image = pygame.image.load('Images/right.png')
+        self.right_image = pygame.transform.scale(self.right_image, (100, 100))
         self.dead_image = pygame.image.load('Images/sickass.png')
         self.dead_image = pygame.transform.scale(self.dead_image, (100, 100))
         self.death_image = pygame.image.load('Images/avocado.jpg')
-        self.death_image = pygame.transform.scale(self.death_image, (1028,926))
+        self.death_image = pygame.transform.scale(self.death_image, (1028, 926))
         self.rect = self.front_image.get_rect()
         self.rect.x = 600
         self.rect.y = 700
         self.direction = "DOWN"
-
-
 
     def die(self):
 
         screen.blit(self.dead_image, (self.rect.x, self.rect.y))
         pygame.display.flip()
         t.sleep(1)
-        screen.blit(self.death_image, (0,0))
+        screen.blit(self.death_image, (0, 0))
         pygame.display.flip()
         t.sleep(2)
         self.update()
 
-
-
+        exit()
 
 
     def update(self):
@@ -43,16 +44,16 @@ class Player:
             self.rect.y += 5
         if keys[pygame.K_LEFT] and self.rect.x > 180:
             self.rect.x -= 5
+            self.direction = "LEFT"
         if keys[pygame.K_RIGHT] and self.rect.x < 760:
             self.rect.x += 5
+            self.direction = "RIGHT"
 
         if self.direction == "UP":
             screen.blit(self.back_image, (self.rect.x, self.rect.y))
         elif self.direction == "DOWN":
             screen.blit(self.front_image, (self.rect.x, self.rect.y))
-
-
-
-
-
-
+        elif self.direction == "LEFT":
+            screen.bilt(self.left_image, (self.rect.x, self.rect.y))
+        elif self.direction == "RIGHT":
+            screen.bilt(self.right_image, (self.rect.x, self.rect.y))
