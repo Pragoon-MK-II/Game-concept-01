@@ -24,6 +24,8 @@ class Player:
         self.rect = self.front_image.get_rect()
         self.rect.x = 600
         self.rect.y = 700
+        self.rect.width = 10
+        self.rect.height = 10
         self.direction = "DOWN"
 
     def die(self):

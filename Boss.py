@@ -49,6 +49,7 @@ class Boss:
 
         if self.seconds == 2 and self.hypersecondtimer % 60 == 0:
             d = Bullet('Images/BEAM.png', 450 , self.rect.y, 0, random.randint(1,1), self.screen, (100,height))
+
             self.bullets.add(d)
 
 

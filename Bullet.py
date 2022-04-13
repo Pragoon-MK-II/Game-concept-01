@@ -9,6 +9,8 @@ class Bullet(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.rect.width = int(scaling[0]/8)
+        self.rect.height = int(scaling[1]/8)
         self.speed = speed
         self.angle = m.radians(angle)
         self.screen = screen
