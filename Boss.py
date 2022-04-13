@@ -1,6 +1,7 @@
 import pygame.sprite
 from Bullet import Bullet
 import random
+from constants import *
 import math
 
 
@@ -20,12 +21,23 @@ class Boss:
 
     def update(self):
         if self.timer == 0:
-            angle = random.randint(-90, 90)
-            b = Bullet('Images/saskeee.png', self.rect.x, self.rect.y, 10, angle, self.screen)
+            angle = random.randint(-50,50)
+            b = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen)
             self.bullets.add(b)
             self.timer = 60
         else:
             self.timer -= 1
+
+        if self.timer == 5:
+            angle2 = 0
+            c = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen)
+
+
+
         self.bullets.draw(self.screen)
         self.bullets.update()
         self.screen.blit(self.image, (self.rect.x, self.rect.y))
+
+
+
+

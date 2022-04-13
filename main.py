@@ -36,7 +36,7 @@ def startscreen():
 
 def main():
     clock = pygame.time.Clock()
-    pygame.mixer.music.play(-1)
+    pygame.mixer.music.play(1)
     pygame.mixer.music.set_volume(-10)
     background = pygame.image.load('Images/UI.png')
     background = pygame.transform.scale(background, (width, height))
@@ -50,6 +50,7 @@ def main():
             pygame.mixer.quit()
             avocado.play()
             player.die()
+
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
             if event.type == pygame.QUIT or keys[K_SPACE]:
@@ -59,6 +60,8 @@ def main():
                 exit()
         screen.blit(background, (0, 0))
         player.update()
+
+
         boss1.update()
         pygame.display.flip()
     pygame.mixer.music.stop()
