@@ -3,7 +3,7 @@ import pygame
 from Boss import Boss
 from Player import Player
 from constants import *
-
+from Boss import *
 
 def startscreen():
     pygame.init()
@@ -46,6 +46,13 @@ def main():
     while running:
         clock.tick(60)
         collide = pygame.Rect.colliderect(player.rect, boss1.rect)
+        for bullet in boss1.bullets:
+            collide2 = pygame.Rect.colliderect(player.rect, bullet)
+            if collide2:
+                pygame.mixer.quit()
+                avocado.play()
+                player.die()
+
         if collide:
             player.die()
         for event in pygame.event.get():
