@@ -26,7 +26,7 @@ class Boss:
         if self.timer == 0:
 
             angle = random.randint(-50, 50)
-            b = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen, (80,80))
+            b = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen, (80,80), (10,10) )
             self.bullets.add(b)
             self.timer = 60
             self.seconds += 1
@@ -42,13 +42,13 @@ class Boss:
             angle2 = random.randint(1, 1)
             bullet_list = []
             while i < 10:
-                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 10, angle2, self.screen, (80,80) ) )
+                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 10, angle2, self.screen, (80,80) (10,10) ) )
                 x += 80
                 i += 1
             self.bullets.add(bullet_list)
 
         if self.seconds == 2 and self.hypersecondtimer % 60 == 0:
-            d = Bullet('Images/BEAM.png', 450 , self.rect.y, 0, random.randint(1,1), self.screen, (100,height))
+            d = Bullet('Images/BEAM.png', 450 , self.rect.y, 0, random.randint(1,1), self.screen, (100,height) , (40,height))
 
             self.bullets.add(d)
 

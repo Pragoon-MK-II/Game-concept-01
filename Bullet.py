@@ -2,15 +2,15 @@ import math as m
 from constants import *
 
 class Bullet(pygame.sprite.Sprite):
-    def __init__(self, img, x, y, speed, angle, screen, scaling):
+    def __init__(self, img, x, y, speed, angle, screen, scaling, hitbox):
         super().__init__()
         self.image = pygame.image.load(img)
         self.image = pygame.transform.scale(self.image, (scaling))
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.rect.width = int(scaling[0]/8)
-        self.rect.height = int(scaling[1]/8)
+        self.rect.width = hitbox[0]
+        self.rect.height = hitbox[1]
         self.speed = speed
         self.angle = m.radians(angle)
         self.screen = screen
