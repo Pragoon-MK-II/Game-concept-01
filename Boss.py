@@ -52,15 +52,20 @@ class Boss:
 
 
         if self.seconds == 1:
-            warning = pygame.transform
-            screen.blit(pygame.image.load('Images/WARNING.png'), (450,100))
-            pygame.display.flip()
+            warning = pygame.image.load('Images/WARNING.png')
+            warning = pygame.transform.scale(warning, (100,150))
+            screen.blit(warning, (450, 100))
+
 
 
         if self.seconds == 2 and self.hypersecondtimer % 60 == 0:
             d = Bullet('Images/BEAM.png', 450 , self.rect.y, 0, random.randint(1,1), self.screen, (100,height) , (40,height))
+            e = Bullet('Images/BEAM.png', 250, self.rect.y, 0, random.randint(1, 1), self.screen, (100, height), (40,height))
+            f = Bullet('Images/BEAM.png', 650, self.rect.y, 0, random.randint(1, 1), self.screen, (100, height), (40,height))
 
             self.bullets.add(d)
+            self.bullets.add(e)
+            self.bullets.add(f)
 
 
         self.bullets.draw(self.screen)
