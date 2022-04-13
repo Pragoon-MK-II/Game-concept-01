@@ -27,7 +27,7 @@ class Boss:
         if self.timer == 0:
 
             angle = random.randint(-50, 50)
-            b = Bullet('Images/sprite2.png', self.rect.x, self.rect.y, 10, angle, self.screen, (80,80), (10,10) )
+            b = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen, (80,80), (10,10) )
             self.bullets.add(b)
             self.timer = 60
             self.seconds += 1
@@ -35,6 +35,24 @@ class Boss:
         else:
             self.timer -= self.bpmR
             self.hypersecondtimer += 1
+
+        if self.seconds % 10 == 0 and self.seconds < 50 and self.seconds != 0:
+            if self.bpmR == 2:
+                pygame.mixer.Channel(0).pause()
+                pygame.mixer.Channel(1).play(pygame.mixer.Sound("music/240 BPM CUT.wav"))
+                self.bpmR = 4
+
+            elif self.bpmR == 4:
+                pygame.mixer.Channel(1).pause()
+                pygame.mixer.Channel(0).play(pygame.mixer.Sound("music/120 BPM CUT.wav"))
+                self.bpmR = 2
+            self.seconds+=1
+        elif self.seconds == 50:
+            self.bpmR = 8
+            pygame.mixer.Channel(1).pause()
+            pygame.mixer.Channel(0).pause()
+            pygame.mixer.Channel(3).play(pygame.mixer.Sound("music/480 BPM CUT.wav"))
+
 
         if self.seconds > 5 and self.timer==0 and self.seconds<15:
             i = 0

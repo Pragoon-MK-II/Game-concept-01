@@ -52,7 +52,6 @@ def main():
                 pygame.mixer.quit()
                 avocado.play()
                 player.die()
-
         if collide:
             player.die()
         for event in pygame.event.get():
