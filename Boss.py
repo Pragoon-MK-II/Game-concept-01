@@ -6,8 +6,8 @@ import math
 
 class Boss:
     def __init__(self, screen):
-        self.image = pygame.image.load('Images/boss1.png')
-        self.image = pygame.transform.scale(self.image, (200, 300))
+        self.image = pygame.image.load('Images/supersuper.png')
+        self.image = pygame.transform.scale(self.image, (300, 200))
         self.rect = self.image.get_rect()
         self.rect.x = 450
         self.rect.y = 100
