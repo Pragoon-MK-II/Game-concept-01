@@ -37,7 +37,6 @@ class Player:
         self.update()
         exit()
 
-
     def update(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] and self.rect.y > 70:
