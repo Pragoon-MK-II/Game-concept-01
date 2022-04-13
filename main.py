@@ -38,7 +38,7 @@ def startscreen():
 def main():
     clock = pygame.time.Clock()
     pygame.mixer.Channel(0).play(pygame.mixer.Sound("music/120 BPM CUT.wav"))
-    pygame.mixer.Channel(3).play(pygame.mixer.Sound("music/THEME.wav.wav"))
+    pygame.mixer.Channel(3).play(pygame.mixer.Sound("music/THEME.wav"))
     background = pygame.image.load('Images/UI.png')
     background = pygame.transform.scale(background, (width, height))
     running = True
@@ -49,10 +49,10 @@ def main():
         collide = pygame.Rect.colliderect(player.rect, boss1.rect)
         for bullet in boss1.bullets:
             collide2 = pygame.Rect.colliderect(player.rect, bullet)
-            if collide2:
+            #if collide2:
                 #pygame.mixer.quit()
                 #avocado.play()
-                player.die()
+                #player.die()
         if collide:
             player.die()
         for event in pygame.event.get():
