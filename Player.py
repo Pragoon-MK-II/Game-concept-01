@@ -27,12 +27,12 @@ class Player:
         self.direction = "DOWN"
 
     def die(self):
-
         screen.blit(self.dead_image, (self.rect.x, self.rect.y))
         pygame.display.flip()
         t.sleep(1)
         screen.blit(self.death_image, (0, 0))
         pygame.display.flip()
+        avocado.play()
         t.sleep(2)
         self.update()
         exit()

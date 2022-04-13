@@ -47,10 +47,7 @@ def main():
         clock.tick(60)
         collide = pygame.Rect.colliderect(player.rect, boss1.rect)
         if collide:
-            pygame.mixer.quit()
-            avocado.play()
             player.die()
-
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
             if event.type == pygame.QUIT or keys[K_SPACE]:
