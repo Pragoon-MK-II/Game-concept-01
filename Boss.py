@@ -20,24 +20,27 @@ class Boss:
         pass
 
     def update(self):
+        seconds = 0
         if self.timer == 0:
-            angle = random.randint(-50,50)
+            angle = random.randint(-50, 50)
             b = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen)
             self.bullets.add(b)
             self.timer = 60
+            seconds += 1
+
         else:
             self.timer -= 1
 
-        if self.timer == 5:
-            angle2 = 0
-            c = Bullet('Images/sprite0.png', self.rect.x, self.rect.y, 10, angle, self.screen)
-
-
+        if seconds == 5:
+            i = 0
+            x = 300
+            angle2 = random.randint(1, 1)
+            while i < 5:
+                c = Bullet('Images/sprite0.png', x, 800, 10, angle2, self.screen)
+                self.bullets.add(c)
+                x += 80
+                i += 1
 
         self.bullets.draw(self.screen)
         self.bullets.update()
         self.screen.blit(self.image, (self.rect.x, self.rect.y))
-
-
-
-
