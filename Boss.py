@@ -62,7 +62,7 @@ class Boss:
             d = Bullet('Images/BEAM.png', 450 , self.rect.y, 0, random.randint(1,1), self.screen, (100,height) , (40,height))
             e = Bullet('Images/BEAM.png', 250, self.rect.y, 0, random.randint(1, 1), self.screen, (100, height), (40,height))
             f = Bullet('Images/BEAM.png', 650, self.rect.y, 0, random.randint(1, 1), self.screen, (100, height), (40,height))
-            g = Bullet('Images/New Piskel (1).png', 250, 100, random.randint(1,1), self.screen, (width, 100), (width,40))
+            g = Bullet('Images/New Piskel (1).png', 210, 250, 0, random.randint(1,1), self.screen, (620, 100), (width,40))
 
             self.bullets.add(d)
             self.bullets.add(e)
