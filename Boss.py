@@ -36,7 +36,7 @@ class Boss:
             self.timer -= self.bpmR
             self.hypersecondtimer += 1
 
-        if self.seconds > 5 and self.timer==0 and self.seconds<15:
+        if self.seconds > 5 and self.timer==0 and self.seconds<20:
             i = 0
             j = 0
             k = 0
@@ -47,7 +47,7 @@ class Boss:
             angle4 = random.randint(-45,-45)
             bullet_list = []
             while i < 10:
-                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 5, angle2, self.screen, (80,80) , (10,10) ) )
+                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 8, angle2, self.screen, (80,80) , (10,10) ) )
                 x += 80
                 i += 1
 
@@ -57,7 +57,7 @@ class Boss:
                 j += 1
 
             while k < 8:
-                bullet_list.append(Bullet('Images/sprite4.png', width-250, self.rect.y+200, 5, angle4, self.screen, (80,80) , (10,10) ) )
+                bullet_list.append(Bullet('Images/sprite4.png', width-300, self.rect.y+200, 5, angle4, self.screen, (80,80) , (10,10) ) )
                 x -= 80
                 k += 1
             self.bullets.add(bullet_list)
@@ -99,7 +99,7 @@ class Boss:
             x = 250
             angle2 = random.randint(90,90)
             bullet_list = []
-            y = 900
+            y = 1000
 
             while i < 10:
                 bullet_list.append(
