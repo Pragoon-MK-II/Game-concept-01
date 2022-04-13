@@ -49,8 +49,8 @@ def main():
         for bullet in boss1.bullets:
             collide2 = pygame.Rect.colliderect(player.rect, bullet)
             if collide2:
-                pygame.mixer.quit()
-                avocado.play()
+                #pygame.mixer.quit()
+                #avocado.play()
                 player.die()
         if collide:
             player.die()
