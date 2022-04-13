@@ -38,6 +38,7 @@ def startscreen():
 def main():
     clock = pygame.time.Clock()
     pygame.mixer.Channel(0).play(pygame.mixer.Sound("music/120 BPM CUT.wav"))
+    pygame.mixer.Channel(3).play(pygame.mixer.Sound("music/THEME.wav.wav"))
     background = pygame.image.load('Images/UI.png')
     background = pygame.transform.scale(background, (width, height))
     running = True
