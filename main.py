@@ -1,3 +1,4 @@
+import time as t
 import pygame
 from Boss import Boss
 from Player import Player
@@ -47,11 +48,11 @@ def main():
         if collide:
             pygame.mixer.quit()
             player.die()
-
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
-            mpos = pygame.mouse.get_pos()
             if event.type == pygame.QUIT or keys[K_SPACE]:
+                youDied.play()
+                t.sleep(1)
                 exit()
         screen.blit(background, (0, 0))
         player.update()
