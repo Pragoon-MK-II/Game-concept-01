@@ -5,6 +5,7 @@ from Player import Player
 from constants import *
 from Boss import *
 
+
 def startscreen():
     pygame.init()
     background = pygame.image.load('Images/pointW.jpg')
@@ -18,15 +19,15 @@ def startscreen():
     textRect = text.get_rect()
     exitRect = exitt.get_rect()
     textRect.center = [textX // 2, textY // 2]
-    exitRect.center = [(textX // 2), (textY // 2)+50]
+    exitRect.center = [(textX // 2), (textY // 2) + 50]
     while running:
         for event in pygame.event.get():
             mpos = pygame.mouse.get_pos()
-            if textRect.center[0] + 30 > mpos[0] > textRect.center[0]-30 and \
-            textRect.center[1]-10 < mpos[1] < 10 + textRect.center[1]:
+            if textRect.center[0] + 30 > mpos[0] > textRect.center[0] - 30 and \
+                    textRect.center[1] - 10 < mpos[1] < 10 + textRect.center[1]:
                 main()
-            if exitRect.center[0] + 10 > mpos[0] > exitRect.center[0]-30 and \
-            exitRect.center[1]-10 < mpos[1] < 10 + exitRect.center[1]:
+            if exitRect.center[0] + 10 > mpos[0] > exitRect.center[0] - 30 and \
+                    exitRect.center[1] - 10 < mpos[1] < 10 + exitRect.center[1]:
                 exit()
         screen.blit(background, (0, 0))
         screen.blit(text, textRect)
@@ -36,8 +37,7 @@ def startscreen():
 
 def main():
     clock = pygame.time.Clock()
-    pygame.mixer.music.play(1)
-    pygame.mixer.music.set_volume(-10)
+    pygame.mixer.Channel(0).play(pygame.mixer.Sound("music/120 BPM CUT.wav"))
     background = pygame.image.load('Images/UI.png')
     background = pygame.transform.scale(background, (width, height))
     running = True
@@ -64,7 +64,6 @@ def main():
                 exit()
         screen.blit(background, (0, 0))
         player.update()
-
 
         boss1.update()
         pygame.display.flip()
