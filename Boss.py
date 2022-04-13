@@ -7,9 +7,9 @@ import math
 class Boss:
     def __init__(self, screen):
         self.image = pygame.image.load('Images/supersuper.png')
-        self.image = pygame.transform.scale(self.image, (600, 500))
+        self.image = pygame.transform.scale(self.image, (300, 200))
         self.rect = self.image.get_rect()
-        self.rect.x = 450
+        self.rect.x = 350
         self.rect.y = 100
         self.timer = 60
         self.screen = screen

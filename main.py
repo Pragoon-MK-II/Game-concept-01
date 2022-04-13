@@ -37,6 +37,7 @@ def startscreen():
 def main():
     clock = pygame.time.Clock()
     pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(-10)
     background = pygame.image.load('Images/UI.png')
     background = pygame.transform.scale(background, (width, height))
     running = True
@@ -47,10 +48,12 @@ def main():
         collide = pygame.Rect.colliderect(player.rect, boss1.rect)
         if collide:
             pygame.mixer.quit()
+            avocado.play()
             player.die()
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
             if event.type == pygame.QUIT or keys[K_SPACE]:
+                pygame.mixer.pause()
                 youDied.play()
                 t.sleep(1)
                 exit()
