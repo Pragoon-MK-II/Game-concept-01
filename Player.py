@@ -8,16 +8,16 @@ from constants import *
 class Player:
     def __init__(self):
         self.front_image = pygame.image.load('Images/front.png')
-        self.front_image = pygame.transform.scale(self.front_image, (100, 100))
+        self.front_image = pygame.transform.scale(self.front_image, (80, 80))
 
         self.back_image = pygame.image.load('Images/back.png')
-        self.back_image = pygame.transform.scale(self.back_image, (100, 100))
+        self.back_image = pygame.transform.scale(self.back_image, (80, 80))
 
         self.left_image = pygame.image.load('Images/left.png')
-        self.left_image = pygame.transform.scale(self.left_image, (100, 100))
+        self.left_image = pygame.transform.scale(self.left_image, (80, 80))
 
         self.right_image = pygame.image.load('Images/right.png')
-        self.right_image = pygame.transform.scale(self.right_image, (100, 100))
+        self.right_image = pygame.transform.scale(self.right_image, (80, 80))
 
         self.dead_image = pygame.image.load('Images/sickass.png')
         self.dead_image = pygame.transform.scale(self.dead_image, (100, 100))

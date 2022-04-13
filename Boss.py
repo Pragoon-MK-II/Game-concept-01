@@ -7,14 +7,14 @@ import math
 
 class Boss:
     def __init__(self, screen):
-        self.image = pygame.image.load('Images/supersuper.png')
+        self.image = pygame.image.load('Images/BLANK.png')
         self.image = pygame.transform.scale(self.image, (300, 200) )
         self.rect = self.image.get_rect()
         self.rect.x = 350
         self.rect.y = 100
         self.timer = 60
         self.screen = screen
-        self.seconds = 0
+        self.seconds = 0.0
         self.bullets = pygame.sprite.Group()
         self.hypersecondtimer = 0.0
         self.bpmR = 2
@@ -29,15 +29,23 @@ class Boss:
             angle = random.randint(-50, 50)
             anglep = random.randint(-50, 50)
             angleL = random.randint(-50, 50)
-            b = Bullet('Images/sprite2.png', self.rect.x, self.rect.y, 10, angle, self.screen, (80,80), (10,10) )
-            o = Bullet('Images/sprite2.png', self.rect.x, self.rect.y, 10, anglep, self.screen, (80,80), (10,10) )
+            angleu = random.randint(-50, 50)
+            b = Bullet('Images/sprite2.png', self.rect.x, self.rect.y, 7, angle, self.screen, (80,80), (10,10) )
+            o = Bullet('Images/sprite2.png', self.rect.x, self.rect.y, 7, anglep, self.screen, (80,80), (10,10) )
+            u = Bullet('Images/sprite2.png', self.rect.x, self.rect.y, 7, angleu, self.screen, (80, 80), (10, 10))
             self.bullets.add(b)
             self.bullets.add(o)
+            self.bullets.add(u)
             if self.seconds > 20:
-                l = Bullet('Images/sprite5.png', self.rect.x, self.rect.y, 15, angleL, self.screen, (80,80) , (10,10) )
-                l2 = Bullet('Images/sprite5.png', self.rect.x, self.rect.y, 15, angleL, self.screen, (80, 80), (10, 10))
+                l = Bullet('Images/sprite5.png', self.rect.x, self.rect.y, 3, angleL, self.screen, (80,80) , (10,10) )
+                l2 = Bullet('Images/sprite5.png', self.rect.x, self.rect.y, 3, angleL, self.screen, (80, 80), (10, 10))
+                l3 = Bullet('Images/sprite5.png', self.rect.x, self.rect.y, 3, angleL, self.screen, (80, 80), (10, 10))
+                l4 = Bullet('Images/sprite5.png', self.rect.x, self.rect.y, 3, angleL, self.screen, (80, 80), (10, 10))
                 self.bullets.add(l)
                 self.bullets.add(l2)
+                self.bullets.add(l3)
+                self.bullets.add(l4)
+
             self.timer = 60
             if self.bpmR == 2:
                 self.seconds += 0.5
@@ -68,30 +76,42 @@ class Boss:
             pygame.mixer.Channel(2).play(pygame.mixer.Sound("music/480 BPM CUT.wav"))
 
 
-        if self.seconds > 5 and self.timer==0 and self.seconds<15:
+        if self.seconds > 5 and self.timer==0 and self.seconds<20:
             i = 0
             j = 0
             k = 0
+            t = 0
+            g = 0
             x = 100
 
             angle2 = random.randint(1, 1)
             angle3 = random.randint(45,45)
             angle4 = random.randint(-45,-45)
+
             bullet_list = []
             while i < 10:
-                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 8, angle2, self.screen, (80,80) , (10,10) ) )
+                bullet_list.append(Bullet('Images/sprite0.png', x, self.rect.y, 10, angle2, self.screen, (80,80) , (10,10) ) )
                 x += 80
                 i += 1
 
             while j < 8:
-                bullet_list.append(Bullet('Images/sprite3.png', 250, self.rect.y+200, 5, angle3, self.screen, (80,80) , (10,10) ) )
+                bullet_list.append(Bullet('Images/sprite3.png', 250, self.rect.y+200,7, angle3, self.screen, (80,80) , (10,10) ) )
                 x += 80
                 j += 1
 
             while k < 8:
-                bullet_list.append(Bullet('Images/sprite4.png', width-300, self.rect.y+200, 5, angle4, self.screen, (80,80) , (10,10) ) )
+                bullet_list.append(Bullet('Images/sprite4.png', width-300, self.rect.y+200, 7, angle4, self.screen, (80,80) , (10,10) ) )
                 x -= 80
                 k += 1
+
+            while t < 8:
+                bullet_list.append(Bullet('Images/sprite4.png', width-300, self.rect.y+300, 7, angle4, self.screen, (80,80) , (10,10) ) )
+                x -= 80
+                t += 1
+            while g < 8:
+                bullet_list.append(Bullet('Images/sprite4.png', 250, self.rect.y+300, 7, angle4, self.screen, (80,80) , (10,10) ) )
+                x += 80
+                g += 1
             self.bullets.add(bullet_list)
 
         #self.dead_image = pygame.image.load('Images/sickass.png')
@@ -174,6 +194,7 @@ class Boss:
                 y -= 80
                 j += 1
             self.bullets.add(bullet_list)
+
 
 
 
